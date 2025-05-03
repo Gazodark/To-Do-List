@@ -12,6 +12,9 @@ body {
   align-items: center;
   margin-top: 50px;
 }
+#todo-list {
+  margin-top: 15px;
+}
 
 .todo-container {
   width: 300px;
