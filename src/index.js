@@ -1,4 +1,5 @@
 import addTask from './module/addTask.js';
+import removeTask from './module/removeTask.js';
 
 const todoInput = document.getElementById('todo-input');
 const addBtn = document.getElementById('add-btn');
@@ -11,3 +12,4 @@ addBtn.addEventListener('click', () => {
     todoInput.value = '';
   }
 });
+todoList.addEventListener('click', (event) => removeTask(event));
