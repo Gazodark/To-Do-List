@@ -40,6 +40,7 @@ h1 {
   margin-bottom: 10px;
   outline: none;
 }
+
 #todo-input:focus {
   border-color: #5b9df9;
   background: #f0f7ff;
@@ -60,6 +61,7 @@ h1 {
   transition: background 0.2s, box-shadow 0.2s;
   box-shadow: 0 2px 8px rgba(44, 62, 80, 0.05);
 }
+
 #add-btn:hover,
 #clear-completed-btn:hover {
   background: #407be7;
@@ -83,13 +85,14 @@ li {
   transition: background 0.2s;
   position: relative;
 }
+
 li:hover {
   background: #e9f1fb;
 }
 
 .todo-checkbox {
   margin-right: 12px;
-  accent-color: #5b9df9;
+  color: #5b9df9;
   width: 18px;
   height: 18px;
   cursor: pointer;
@@ -121,13 +124,16 @@ li:hover {
   padding: 4px 8px;
   transition: background 0.2s, color 0.2s;
 }
+
 .edit-btn:hover {
   background: #e0eafc;
   color: #407be7;
 }
+
 .delete-btn {
   color: #e74c3c;
 }
+
 .delete-btn:hover {
   background: #fdecea;
   color: #c0392b;
@@ -151,6 +157,7 @@ li:hover {
   width: 8px;
   background: #f4f4f4;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #bfc9d1;
   border-radius: 4px;
