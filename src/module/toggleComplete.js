@@ -1,6 +1,8 @@
-export default function toggleComplete(event) {
+export default function toggleComplete(event, tasks, saveTasks, renderTasks) {
   if (event.target.classList.contains('todo-checkbox')) {
-    const li = event.target.closest('li');
-    li.classList.toggle('completed');
+    const idx = Number(event.target.getAttribute('data-idx'));
+    tasks[idx].completed = event.target.checked;
+    saveTasks(tasks);
+    renderTasks();
   }
 }
