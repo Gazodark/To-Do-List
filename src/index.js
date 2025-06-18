@@ -1,8 +1,6 @@
-import addTask from './module/addTask.js';
 import removeTask from './module/removeTask.js';
 import toggleComplete from './module/toggleComplete.js';
 import enableDragAndDrop from './module/enableDragAndDrop.js';
-import clearCompleted from './module/clearCompleted.js';
 import editTask from './module/editTask.js';
 import { saveTasks, loadTasks } from './module/storage.js';
 
@@ -12,6 +10,22 @@ const todoList = document.getElementById('todo-list');
 const clearCompletedBtn = document.getElementById('clear-completed-btn');
 
 let tasks = loadTasks();
+
+function renderTasks() {
+  todoList.innerHTML = '';
+  tasks.forEach((task, idx) => {
+    const li = document.createElement('li');
+    if (task.completed) li.classList.add('completed');
+    li.innerHTML = `
+      <input type="checkbox" class="todo-checkbox" ${task.completed ? 'checked' : ''} data-idx="${idx}">
+      <span class="task">${task.text}</span>
+      <button class="edit-btn">Edit</button>
+      <button class="delete-btn">Delete</button>
+    `;
+    todoList.appendChild(li);
+  });
+}
+
 renderTasks();
 
 addBtn.addEventListener('click', () => {
@@ -37,18 +51,3 @@ clearCompletedBtn.addEventListener('click', () => {
   renderTasks();
 });
 enableDragAndDrop(todoList);
-
-function renderTasks() {
-  todoList.innerHTML = '';
-  tasks.forEach((task, idx) => {
-    const li = document.createElement('li');
-    if (task.completed) li.classList.add('completed');
-    li.innerHTML = `
-      <input type="checkbox" class="todo-checkbox" ${task.completed ? 'checked' : ''} data-idx="${idx}">
-      <span class="task">${task.text}</span>
-      <button class="edit-btn">Edit</button>
-      <button class="delete-btn">Delete</button>
-    `;
-    todoList.appendChild(li);
-  });
-}
